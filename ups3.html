@@ -1,0 +1,316 @@
+<!DOCTYPE html> 
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pheromone der Götter – Upsell 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #050308;
+    --text: #f5f5f5;
+    --muted: #c7c7c7;
+    --gold: #d8a436;
+    --pink: #ff007f;
+    --purple: #7a00ff;
+  }
+
+  html, body {
+    margin: 0;
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: radial-gradient(80vw 70vh at 70% 0%, rgba(255,0,127,0.07), transparent 60%),
+                radial-gradient(70vw 60vh at 30% 90%, rgba(122,0,255,0.10), transparent 60%),
+                var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  .particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: radial-gradient(var(--gold) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.25;
+    animation: moveParticles 60s linear infinite;
+  }
+
+  @keyframes moveParticles {
+    from { background-position: 0 0; }
+    to { background-position: -1000px 1000px; }
+  }
+
+  .progress-container {
+    width: 100%;
+    background: rgba(255,255,255,0.08);
+    height: 10px;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--pink));
+    box-shadow: 0 0 20px var(--gold);
+    animation: fillBar 3s ease forwards;
+  }
+
+  @keyframes fillBar {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  .progress-text {
+    text-align: center;
+    color: var(--gold);
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding-top: 25px;
+    text-transform: uppercase;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin: 100px auto 80px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 40px 30px;
+    box-shadow: 0 0 40px rgba(255,0,127,0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--gold);
+    text-shadow: 0 0 20px var(--pink), 0 0 10px var(--gold);
+    margin-top: 0;
+    margin-bottom: 25px;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 15px var(--gold), 0 0 30px var(--pink); }
+    to { text-shadow: 0 0 30px var(--gold), 0 0 60px var(--pink); }
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 14px;
+    color: var(--muted);
+  }
+
+  strong, b { color: var(--gold); }
+
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 60px;
+    font-size: 0.9rem;
+  }
+
+  button.digistore24-upsell-accept {
+    background: linear-gradient(135deg, #00e676, #00c853);
+    color: #ffffff;
+    border: none;
+    padding: 15px 32px;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(0, 255, 100, 0.4);
+    transition: all 0.3s ease;
+  }
+
+  button.digistore24-upsell-accept:hover {
+    background: linear-gradient(135deg, #00c853, #00b342);
+    box-shadow: 0 0 25px rgba(0, 255, 100, 0.7);
+  }
+
+  a[href*="answer/no"] {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+    color: #ffffff;
+    border: none;
+    padding: 12px 26px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 18px;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+
+  a[href*="answer/no"]:hover {
+    background: linear-gradient(135deg, #d32f2f, #b71c1c);
+    box-shadow: 0 0 20px rgba(255, 80, 80, 0.5);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    .wrap {
+      margin: 80px 15px;
+      padding: 25px 20px;
+    }
+    h1 { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="particles"></div>
+
+<div class="progress-container"><div class="progress-bar"></div></div>
+<div class="progress-text">SCHRITT 3 VON 3 – SCHLIESSE DIESE SEITE NICHT!</div>
+
+<div class="wrap">
+  <h1>💎 PHEROMONE DER GÖTTER 💎</h1>
+
+  <p><b>Letzter Schritt – Dieses Angebot ist etwas ganz Besonderes!</b></p>
+
+  <p>Bevor wir fortfahren und du Zugriff auf die <b>SalzProtokoll-App</b> sowie auf alle anderen Produkte und Boni bekommst, die du bereits gesichert hast, will ich dir noch etwas zeigen:</p>
+
+  <p><b>„PHEROMONE DER GÖTTER" – DIE METHODE</b></p>
+
+  <p>In diesem Moment hast du wahrscheinlich schon meine Verführungsmethode <b>MP5</b> in der Hand, zusammen mit der Anti-Impotenz-App <b>SalzProtokoll</b>...</p>
+
+  <p>Und jetzt wirst du nie wieder an Erektionsproblemen leiden –  
+  und du weißt ganz genau, wie du jede Frau zum multiplen Orgasmus bringst...</p>
+
+  <p><b>ABER STELL DIR MAL VOR...</b></p>
+
+  <p>WENN DU KOMPLETT SCHÜCHTERN SEIN KÖNNTEST...<br>
+  UND KEIN EINZIGES WORT SAGEN MÜSSTEST...</p>
+
+  <p>Und trotzdem – mit einem einzigen geheimen Trick – könntest du...</p>
+
+  <p><b>FRAUEN DAZU BRINGEN, SICH MAGNETISCH VON DIR ANGEZOGEN ZU FÜHLEN</b><br>
+  <b>NUR WEIL DU IN IHRER NÄHE BIST?</b></p>
+
+  <p>Als wärst du ein lebendiger Magnet,<br>
+  und sie hätten keine Ahnung, warum sie plötzlich so geil auf dich sind...</p>
+
+  <p>Zwei Jahre nachdem ich mit meinem Neuro-Wissenschaftler-Kumpel aus Harvard das MP5 entwickelt hatte, rief er mich an mit einer Entdeckung,<br>
+  die alles verändern würde, was wir über sexuelle Anziehung wissen…</p>
+
+  <p>Er sagte:<br>
+  Genau wie im Tierreich verfügen auch Menschen über etwas namens...</p>
+
+  <p><b>PHEROMONE.</b></p>
+
+  <p>Du hast bestimmt schon gesehen, was mit Rüden passiert, wenn eine Hündin läufig ist…<br>
+  Die drehen komplett durch – nur wegen ihres Geruchs.</p>
+
+  <p>Und genauso ist es bei uns Männern:</p>
+
+  <p>Wenn ein <b>MANN</b> intensivere Pheromone verströmt als andere,<br>
+  wird er automatisch attraktiver –<br>
+  ganz egal wie er aussieht.</p>
+
+  <p>Deshalb siehst du manchmal Kerle, die aussehen wie Quasimodo,<br>
+  aber Models an der Hand haben.</p>
+
+  <p>Aber beim Menschen sind Pheromone anders…</p>
+
+  <p>Man kann sie nicht direkt riechen…<br>
+  Sie wirken unterbewusst –<br>
+  im instinktiven, animalischen Teil des weiblichen Gehirns…</p>
+
+  <p>Und genau dieser Teil entscheidet in Sekunden,<br>
+  ob sie mit dir schlafen will oder nicht –<br>
+  noch bevor sie realisiert, dass sie dich überhaupt begehrt.</p>
+
+  <p>Aus dieser Entdeckung entstand:</p>
+
+  <p><b>💥 DIE METHODE „PHEROMONE DER GÖTTER" 💥</b></p>
+
+  <p>Ein brutaler Protokoll, mit dem du:</p>
+
+  <p>✅ Deine natürliche Pheromonproduktion um das <b>50-FACHE</b> steigerst<br>
+  ✅ Mit bestimmten Zutaten deine Pheromone <b>IN SEKUNDEN</b> aktivierst<br>
+  ✅ Frauen verrückt machst, ohne ein Wort zu sagen</p>
+
+  <p>Mit dieser Methode wirst du:</p>
+
+  <p>💢 Überall wahrgenommen<br>
+  💢 Von Frauen gewollt – auch wenn du still bist<br>
+  💢 Zu einem Mann, dem sie instinktiv hinterherlaufen</p>
+
+  <p><b>Und das Beste:</b><br>
+  Du bekommst das ganze Paket <b>HEUTE</b> für nur:</p>
+
+  <p style="font-size:1.6rem; color:var(--gold); text-align:center; font-weight:800;">💰 37 $</p>
+
+  <p>Klick jetzt auf den grünen Button und verwandle dich in einen menschlichen Sexmagneten.<br>
+  <b>OHNE EIN WORT ZU SAGEN.</b></p>
+
+ <div style="text-align:center; margin-top:30px;">
+
+  <!-- BOTÃO SIM -->
+  <a href="https://checkout.centerpag.com/pay/PPU38CQ3QIF?upsell=true"
+     style="
+        display:inline-block;
+        background: linear-gradient(135deg, #00e676, #00c853);
+        padding: 18px 40px;
+        color: #ffffff;
+        font-weight: 900;
+        font-size: 22px;
+        border-radius: 12px;
+        text-decoration:none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 0 20px rgba(0,255,120,0.6);
+        animation: pulseButtonUpsell3 1.4s infinite ease-in-out;
+     ">
+     JA, ICH WILL MEHR FRAUEN ANZIEHEN
+  </a>
+
+  <!-- Animação -->
+  <style>
+  @keyframes pulseButtonUpsell3 {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(0,255,120,0.5); }
+    50% { transform: scale(1.06); box-shadow: 0 0 28px rgba(0,255,120,0.8); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(0,255,120,0.5); }
+  }
+  </style>
+
+  <!-- BOTÃO NÃO -->
+  <br><br>
+  <a href="https://al.manifestandobendiciones.com/ppalsdown3"
+     style="
+        display:inline-block;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: underline;
+        opacity: .8;
+     ">
+     NEIN, ICH WILL KEINE FRAUEN MEHR ANZIEHEN
+  </a>
+
+</div>
+
+  <p class="footer">© 2025 SalzProtokoll – Alle Rechte vorbehalten.</p>
+
+</div>
+
+</body>
+</html>
+

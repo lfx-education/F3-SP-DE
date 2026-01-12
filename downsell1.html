@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>STIERSCHWANZ – Downsell 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060710;
+    --text: #f2f2f7;
+    --muted: #aab0c0;
+    --neon: #a259ff;
+    --cyan: #00e6ff;
+    --progress: #ff0033;
+    --gold: #ffcc33;
+  }
+
+  body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: radial-gradient(80vw 60vh at 80% 0%, rgba(162,89,255,0.15), transparent 60%),
+                radial-gradient(70vw 60vh at 0% 20%, rgba(0,230,255,0.12), transparent 65%),
+                #050611;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  .progress-container {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0 12px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+  }
+
+  .progress-text {
+    font-weight: 900;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--progress);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .progress-bar {
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.1);
+    height: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .progress-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--progress), #ff66cc);
+    box-shadow: 0 0 15px var(--progress);
+    border-radius: 10px;
+    animation: fillBar 3s ease forwards;
+  }
+
+  @keyframes fillBar {
+    from { width: 0%; }
+    to { width: 55%; }
+  }
+
+  /* 🔥 Banner do desconto */
+  .discount-banner {
+    background: linear-gradient(90deg, #2b0040, #000);
+    text-align: center;
+    color: var(--text);
+    font-weight: 600;
+    padding: 18px 12px;
+    border-bottom: 2px solid var(--progress);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.3);
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+  }
+  .discount-banner span {
+    color: #ffd700;
+    font-weight: 800;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 28px 18px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(162, 89, 255, 0.2));
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
+  }
+
+  h1, b, strong { color: var(--cyan); }
+  p { margin: 0 0 14px; font-size: 1.05rem; }
+
+  .checkout-wrapper {
+    background: rgba(162, 89, 255, 0.12);
+    border: 1px solid rgba(255, 0, 80, 0.4);
+    box-shadow: 0 0 25px rgba(255, 0, 80, 0.3);
+    border-radius: 16px;
+    padding: 25px 15px;
+    margin-top: 25px;
+  }
+
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 36px;
+    font-size: .95rem;
+  }
+
+  @media (max-width: 768px) {
+    .wrap { padding: 20px 16px 60px; margin-top: 40px; }
+    p { font-size: 1rem; }
+    h1 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- 🟨 BARRA SUPERIOR -->
+  <div class="progress-container">
+    <div class="progress-text">SCHRITT 1 VON 2 – SCHLIESSE DIESE SEITE NICHT!</div>
+    <div class="progress-bar"><span></span></div>
+  </div>
+
+  <!-- 🔥 BANNER DE DESCONTO (abaixo da barra) -->
+  <div class="discount-banner">
+    ❌ Ich werde <b>NICHT</b> zulassen, dass ein Teilnehmer des <b>„SalzProtokoll"</b> in 
+    <span id="userCity">deiner Stadt</span> nur als <b>"der mit dem kleinen Schwanz"</b> bekannt ist…
+  </div>
+
+  <!-- 💬 CONTEÚDO PRINCIPAL -->
+  <div class="wrap">
+    <section class="hero">
+      <p>⚠️ <b>WARTEN! ICH GEBE DIR JETZT EIN EXKLUSIVES ANGEBOT!</b> ⚠️</p>
+      <p>📉 <b>Nur jetzt</b> gebe ich dir Zugriff auf das Programm <b>STIERSCHWANZ</b>, zusammen mit dem <b>kostenlosen Bonus</b>, den du auf der vorherigen Seite gesehen hast – für nur <b>37 €...</b></p>
+      <p>🎁 Und zusätzlich packe ich noch <b>1 exklusiven Bonus</b> obendrauf…</p>
+      <p>✅ <b>Nur jetzt</b>, auf dieser Seite, und zum <b>LETZTEN MAL</b>, senke ich den Preis für das <b>GESAMTE</b> Paket auf nur <b>37 €!</b></p>
+      <p>🔥 <b>Das bedeutet:</b> Du bekommst in diesem <b>einzigartigen und exklusiven Paket</b> insgesamt <b>3 krasse Programme</b>, die zusammen <b>300 €</b> wert sind, für nur <b>37 €!</b></p>
+      <p>🚨 <b>Das ist deine LETZTE MÖGLICHKEIT…</b></p>
+      <p>🟩 <b>Klicke auf den GRÜNEN BUTTON unten</b> und füge dieses <b>Bundle jetzt deinem Paket hinzu.</b><br>
+      Du wirst <b>verdammt froh</b> sein, es getan zu haben…</p>
+
+      <!-- 🔥 BOTÕES DO DOWNSELL 1 -->
+
+<style>
+.ds-buttons {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.ds-btn-yes {
+  background: linear-gradient(135deg, #00e676, #00c853);
+  color: #ffffff;
+  padding: 18px 32px;
+  font-size: 22px;
+  font-weight: 900;
+  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(0,255,80,0.5);
+  animation: pulseYes 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseYes {
+  0% { box-shadow: 0 0 15px rgba(0,255,80,0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 30px rgba(0,255,80,0.8); transform: scale(1.05); }
+  100% { box-shadow: 0 0 15px rgba(0,255,80,0.5); transform: scale(1); }
+}
+
+.ds-btn-no {
+  background: linear-gradient(135deg, #ff5252, #d32f2f);
+  color: #ffffff;
+  padding: 14px 26px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  opacity: .9;
+  transition: 0.3s;
+}
+
+.ds-btn-no:hover {
+  opacity: 1;
+  box-shadow: 0 0 20px rgba(255,80,80,0.6);
+}
+</style>
+
+<div class="ds-buttons">
+
+  <!-- BOTÃO SIM (checkout com upsell) -->
+  <a class="ds-btn-yes" 
+     href="https://go.centerpag.com/PPU38CQ4130?upsell=true">
+     ICH WILL MEINEN PENIS MIT RABATT VERGRÖSSERN
+  </a>
+
+  <br>
+
+  <!-- BOTÃO NÃO (vai para o upsell 2) -->
+  <a class="ds-btn-no"
+     href="https://al.manifestandobendiciones.com/ppalsup2">
+     ICH WILL NICHT
+  </a>
+
+</div>
+
+      </div>
+    </section>
+    <p class="footer">© 2025 SalzProtokoll – Alle Rechte vorbehalten.</p>
+  </div>
+
+  <!-- 📍 Script de cidade ajustado -->
+  <script>
+    fetch("https://ipapi.co/json/")
+      .then(res => res.json())
+      .then(data => {
+        let city = data.city || "deiner Stadt";
+        if (city.includes("Paulista")) city = "São Paulo";
+        document.getElementById("userCity").textContent = city;
+      })
+      .catch(() => {
+        document.getElementById("userCity").textContent = "deiner Stadt";
+      });
+  </script>
+
+</body>
+</html>
+
