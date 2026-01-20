@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow">
-<title>Visualiser le Protocole</title>
+<title>Protokoll Anzeigen</title>
 <style>
     * {
         margin: 0;
@@ -158,14 +158,14 @@
 <div class="header">
     <div class="header-content">
         <a href="member-area.html" class="back-link">
-            ← Retour à l'espace membre
+            ← Zurück zum Mitgliederbereich
         </a>
-        <h1 id="productTitle">Chargement...</h1>
+        <h1 id="productTitle">Laden...</h1>
         <div class="title-divider"></div>
         <div class="security-wrapper">
             <div class="security-message">
                 <span class="lock-icon">🔒</span>
-                <span>Visualisation sécurisée et privée.</span>
+                <span>Sichere und private Ansicht.</span>
             </div>
         </div>
     </div>
@@ -184,21 +184,21 @@
 ></iframe>
 
 <script>
-    // Mapeamento de produtos para arquivos PDF
+    // Mapeamento de produtos para arquivos PDF (pasta local)
     const pdfMapping = {
-        'force-naturalle': 'pdfs/Protocole-Force-Naturalle-Devenez-plus-fort-grace-aux-aliments-naturels.pdf',
-        'taureau-premium': 'pdfs/Protocole-Taureau-Premium.pdf',
-        'connexion-profonde': 'pdfs/Maitrise de la-Connexion Profonde .pdf',
-        'charisme-instinctif': 'pdfs/Charisme-Instinctif-Devenez-lHomme-qui-Attire-et-Inspire.pdf',
+        'salz-protokolls': 'pdfs/Salz Protokolls.pdf',
+        'salz-protokoll-turbo': 'pdfs/Salz Protokoll Turbo.pdf',
+        'meisterschaft-verbindung': 'pdfs/Meisterschaft der Tiefen Verbindung.pdf',
+        'instinkt-charisma': 'pdfs/Instinkt Charisma Protokoll.pdf',
         'win-ex-back': 'pdfs/Win Your Ex Back.pdf'
     };
 
-    // Nomes dos produtos
+    // Nomes dos produtos (iguais aos nomes dos PDFs)
     const productNames = {
-        'force-naturalle': 'Protocole Force Naturalle',
-        'taureau-premium': 'Protocole Taureau Premium',
-        'connexion-profonde': 'Maîtrise de la Connexion Profonde',
-        'charisme-instinctif': 'Charisme Instinctif',
+        'salz-protokolls': 'Salz Protokolls',
+        'salz-protokoll-turbo': 'Salz Protokoll Turbo',
+        'meisterschaft-verbindung': 'Meisterschaft der Tiefen Verbindung',
+        'instinkt-charisma': 'Instinkt Charisma Protokoll',
         'win-ex-back': 'Win Your Ex Back'
     };
 
@@ -213,7 +213,7 @@
         const productId = getUrlParameter('id');
         
         if (!productId) {
-            showError('Aucun produit spécifié.');
+            showError('Kein Produkt angegeben.');
             return;
         }
 
@@ -221,18 +221,18 @@
         const productName = productNames[productId];
 
         if (!pdfPath) {
-            showError('Produit non trouvé.');
+            showError('Produkt nicht gefunden.');
             return;
         }
 
         // Atualizar título
         const titleElement = document.getElementById('productTitle');
         if (titleElement) {
-            titleElement.textContent = productName || 'Document';
+            titleElement.textContent = productName || 'Dokument';
         }
 
-        // Construir URL completa do PDF
-        const baseUrl = 'https://lp.portalsaludable.sbs';
+        // Construir URL completa do PDF (usando servidor Vercel)
+        const baseUrl = 'https://f3-sp-de.vercel.app';
         const fullPdfUrl = `${baseUrl}/member-w/${pdfPath}`;
 
         // Carregar PDF no viewer oficial do PDF.js
@@ -243,7 +243,7 @@
             pdfViewer.src = viewerUrl;
             console.log('Carregando PDF:', viewerUrl);
         } else {
-            showError('Erreur: Impossible de charger le visualiseur PDF.');
+            showError('Fehler: Der PDF-Viewer konnte nicht geladen werden.');
         }
     }
 
@@ -265,5 +265,3 @@
 
 </body>
 </html>
-
-
