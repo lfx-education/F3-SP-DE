@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow">
+<title>Visualiser le Protocole</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: #0f0f0f;
+        color: #ffffff;
+        min-height: 100vh;
+    }
+
+    .header {
+        background: rgba(16, 185, 129, 0.1);
+        border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        padding: 20px;
+        margin-bottom: 0;
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .security-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #ffffff;
+        text-align: left;
+        margin: 10px 0 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .title-divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0 auto 20px auto;
+        max-width: 1200px;
+    }
+
+    .security-message {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
+        padding: 8px 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 1.4;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .security-message .lock-icon {
+        font-size: 16px;
+        color: #d4af37;
+        flex-shrink: 0;
+        line-height: 1;
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #34d399;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+    }
+
+    .back-link:hover {
+        color: #10b981;
+    }
+
+    #pdfViewer {
+        border: none;
+        background: white;
+        width: 100%;
+        height: calc(100vh - 280px);
+        display: block;
+    }
+
+    .error-message {
+        background: rgba(207, 46, 46, 0.1);
+        border: 1px solid rgba(207, 46, 46, 0.3);
+        color: #ff6b6b;
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 12px 15px;
+        }
+
+        .back-link {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .header h1 {
+            font-size: 18px;
+            margin: 5px 0 10px 0;
+        }
+
+        .title-divider {
+            margin: 0 auto 12px auto;
+        }
+
+        .security-wrapper {
+            margin-top: 8px;
+        }
+
+        .security-message {
+            padding: 6px 10px;
+            font-size: 13px;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .security-message .lock-icon {
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        #pdfViewer {
+            height: calc(100vh - 220px);
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-content">
+        <a href="member-area.html" class="back-link">
+            ← Retour à l'espace membre
+        </a>
+        <h1 id="productTitle">Chargement...</h1>
+        <div class="title-divider"></div>
+        <div class="security-wrapper">
+            <div class="security-message">
+                <span class="lock-icon">🔒</span>
+                <span>Visualisation sécurisée et privée.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="errorMessage" class="error-message" style="display: none;"></div>
+
+<iframe 
+  id="pdfViewer"
+  src=""
+  width="100%"
+  height="calc(100vh - 200px)"
+  style="border: none; background: white;"
+  allowfullscreen
+  loading="lazy"
+></iframe>
+
+<script>
+    // Mapeamento de produtos para arquivos PDF
+    const pdfMapping = {
+        'force-naturalle': 'pdfs/Protocole-Force-Naturalle-Devenez-plus-fort-grace-aux-aliments-naturels.pdf',
+        'taureau-premium': 'pdfs/Protocole-Taureau-Premium.pdf',
+        'connexion-profonde': 'pdfs/Maitrise de la-Connexion Profonde .pdf',
+        'charisme-instinctif': 'pdfs/Charisme-Instinctif-Devenez-lHomme-qui-Attire-et-Inspire.pdf',
+        'win-ex-back': 'pdfs/Win Your Ex Back.pdf'
+    };
+
+    // Nomes dos produtos
+    const productNames = {
+        'force-naturalle': 'Protocole Force Naturalle',
+        'taureau-premium': 'Protocole Taureau Premium',
+        'connexion-profonde': 'Maîtrise de la Connexion Profonde',
+        'charisme-instinctif': 'Charisme Instinctif',
+        'win-ex-back': 'Win Your Ex Back'
+    };
+
+    // Obter parâmetro da URL
+    function getUrlParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Carregar PDF
+    function loadPDF() {
+        const productId = getUrlParameter('id');
+        
+        if (!productId) {
+            showError('Aucun produit spécifié.');
+            return;
+        }
+
+        const pdfPath = pdfMapping[productId];
+        const productName = productNames[productId];
+
+        if (!pdfPath) {
+            showError('Produit non trouvé.');
+            return;
+        }
+
+        // Atualizar título
+        const titleElement = document.getElementById('productTitle');
+        if (titleElement) {
+            titleElement.textContent = productName || 'Document';
+        }
+
+        // Construir URL completa do PDF
+        const baseUrl = 'https://lp.portalsaludable.sbs';
+        const fullPdfUrl = `${baseUrl}/member-w/${pdfPath}`;
+
+        // Carregar PDF no viewer oficial do PDF.js
+        const pdfViewer = document.getElementById('pdfViewer');
+        const viewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(fullPdfUrl)}`;
+        
+        if (pdfViewer) {
+            pdfViewer.src = viewerUrl;
+            console.log('Carregando PDF:', viewerUrl);
+        } else {
+            showError('Erreur: Impossible de charger le visualiseur PDF.');
+        }
+    }
+
+    function showError(message) {
+        const errorDiv = document.getElementById('errorMessage');
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    }
+
+    // Carregar quando a página estiver pronta
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadPDF);
+    } else {
+        loadPDF();
+    }
+</script>
+
+</body>
+</html>
+
+

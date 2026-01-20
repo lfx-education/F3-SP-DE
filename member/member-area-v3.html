@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="SEMrushBot" content="noindex, nofollow">
+<meta name="AhrefsBot" content="noindex, nofollow">
+<title>Mitgliederbereich – Salz Protokolls</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --gold-primary: #d4af37;
+        --gold-gradient: linear-gradient(135deg, #d4af37 0%, #aa8a2e 100%);
+        --dark-bg: #0f0f0f;
+        --card-bg: #161616;
+        --text-white: #ffffff;
+        --success-green: #10b981;
+        --green-light: #34d399;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: var(--dark-bg);
+        color: var(--text-white);
+        min-height: 100vh;
+        line-height: 1.6;
+        background-image: url('foto fundo.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    /* HEADER */
+    .security-header {
+        background: rgba(16, 185, 129, 0.1);
+        border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .security-header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .security-header-left .lock-icon {
+        font-size: 18px;
+        color: var(--gold-primary);
+    }
+
+    .security-header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .lifetime-badge {
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        color: var(--green-light);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .member-area-wrapper {
+        padding: 40px 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .section {
+        margin-bottom: 60px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 15px;
+        color: var(--text-white);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        margin-bottom: 40px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 18px 25px;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        line-height: 1.6;
+    }
+
+    /* PROTOCOLOS PRINCIPAIS */
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .product-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 35px 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        min-height: 380px;
+    }
+
+    .product-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 20px;
+        box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0);
+        transition: all 0.4s ease;
+        pointer-events: none;
+    }
+
+    .product-card:hover {
+        transform: translateY(-8px);
+        background: #1a1a1a;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .product-card:hover::after {
+        box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.5);
+    }
+
+    .badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .badge-foundation { background: rgba(16, 185, 129, 0.2); color: var(--green-light); }
+    .badge-advanced { background: rgba(212, 175, 55, 0.2); color: #f9d976; }
+    .badge-exclusive { background: rgba(212, 175, 55, 0.2); color: #f9d976; }
+    .badge-premium { background: rgba(212, 175, 55, 0.2); color: #f9d976; }
+
+    .card-icon {
+        font-size: 42px;
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.03);
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s ease;
+    }
+
+    .product-card:hover .card-icon {
+        background: rgba(212, 175, 55, 0.1);
+        border-color: var(--gold-primary);
+        transform: scale(1.1);
+    }
+
+    .unlocked-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--green-light);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .product-title {
+        color: var(--text-white);
+        font-size: 19px;
+        font-weight: 700;
+        margin: 0 0 25px 0;
+        line-height: 1.4;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 54px;
+    }
+
+    .access-btn {
+        width: 100%;
+        padding: 15px 0;
+        background: transparent;
+        border: 1px solid var(--gold-primary);
+        color: var(--gold-primary) !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        display: block;
+        text-align: center;
+        margin-top: auto;
+    }
+
+    .access-btn::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 0%; height: 100%;
+        background: var(--gold-gradient);
+        transition: all 0.4s ease;
+        z-index: -1;
+    }
+
+    .access-btn:hover {
+        color: #000 !important;
+        border-color: transparent;
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+
+    .access-btn:hover::before {
+        width: 100%;
+    }
+
+    .card-hero {
+        border-color: rgba(16, 185, 129, 0.3);
+        background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--card-bg) 100%);
+    }
+    .card-hero .access-btn {
+        background: #10b981;
+        border-color: #10b981;
+        color: white !important;
+    }
+    .card-hero .access-btn:hover {
+        background: #059669;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+    .card-hero .access-btn::before {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    /* SEÇÃO VÍDEOS */
+    .videos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .video-card {
+        background: rgba(22, 22, 22, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 20px;
+        padding: 35px 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        opacity: 0.85;
+        min-height: 320px;
+    }
+
+    .video-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--green-light);
+    }
+
+    .video-unlocked-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--green-light);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .video-disabled-btn {
+        width: 100%;
+        padding: 15px 0;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.4) !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border-radius: 10px;
+        cursor: not-allowed;
+        margin-top: auto;
+    }
+
+    /* SEÇÃO BÔNUS */
+    .bonus-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .bonus-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        min-height: 300px;
+    }
+
+    .bonus-theme-tag {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 4px 10px;
+        border-radius: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--green-light);
+    }
+
+    .bonus-gratuit-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        background: rgba(16, 185, 129, 0.15);
+        color: var(--green-light);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .bonus-card .product-title {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+    }
+
+    .bonus-card .access-btn {
+        margin-top: auto;
+    }
+
+    /* SEÇÃO FUTUROS */
+    .future-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    .future-card {
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(212, 175, 55, 0.02));
+        border: 1px dashed rgba(212, 175, 55, 0.3);
+        border-radius: 20px;
+        padding: 35px 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+
+    .future-dev-tag {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        margin-top: 15px;
+        background: rgba(212, 175, 55, 0.15);
+        color: #f9d976;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    /* INFO TAG */
+    .info-tag {
+        text-align: center;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        margin-bottom: 40px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 18px 25px;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        line-height: 1.6;
+    }
+
+    /* SUPPORT & REFUND SECTION */
+    .support-section {
+        background: rgba(0, 0, 0, 0.8);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-radius: 12px;
+        padding: 30px;
+        margin: 40px auto;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .support-section h3 {
+        color: var(--success-green);
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .support-section p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .support-email {
+        display: inline-block;
+        background: var(--success-green);
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 12px 24px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+
+    .support-email:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    }
+
+    .refund-link {
+        margin-top: 25px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .refund-link a {
+        display: inline-block;
+        background: rgba(16, 185, 129, 0.2);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 15px;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .refund-link a:hover {
+        background: rgba(16, 185, 129, 0.3);
+        border-color: rgba(16, 185, 129, 0.6);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    .footer {
+        background: rgba(0, 0, 0, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 30px 20px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        margin-top: 60px;
+    }
+
+    .footer p {
+        margin: 8px 0;
+    }
+
+    .footer a {
+        color: var(--green-light);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: var(--success-green);
+        text-decoration: underline;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+        .member-area-wrapper {
+            padding: 20px 15px;
+        }
+
+        .security-header {
+            flex-direction: column;
+            text-align: center;
+            padding: 12px 15px;
+        }
+
+        .security-header-left,
+        .security-header-right {
+            justify-content: center;
+            width: 100%;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle,
+        .info-tag {
+            font-size: 14px;
+            padding: 14px 18px;
+            margin-bottom: 30px;
+        }
+
+        .products-grid,
+        .videos-grid,
+        .bonus-grid,
+        .future-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .product-card,
+        .video-card,
+        .bonus-card,
+        .future-card {
+            padding: 24px 18px;
+            min-height: auto;
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            font-size: 36px;
+            margin-bottom: 14px;
+        }
+
+        .unlocked-tag,
+        .video-unlocked-tag,
+        .bonus-gratuit-tag {
+            padding: 3px 10px;
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 16px;
+            min-height: auto;
+            line-height: 1.3;
+        }
+
+        .access-btn {
+            padding: 12px 0;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .video-disabled-btn {
+            padding: 12px 0;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .badge {
+            display: none;
+        }
+
+        .video-badge,
+        .bonus-theme-tag {
+            font-size: 9px;
+            padding: 3px 8px;
+            top: 10px;
+            right: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="security-header">
+    <div class="security-header-left">
+        <span class="lock-icon">🔒</span>
+        <span>Sicherer und privater Bereich</span>
+    </div>
+    <div class="security-header-right">
+        <span class="lifetime-badge">Lebenslanger Zugang aktiviert</span>
+    </div>
+</div>
+
+<div class="member-area-wrapper">
+    
+    <!-- PROTOCOLOS PRINCIPAIS -->
+    <div class="section">
+        <h2 class="section-title">Ihre Vollständigen Protokolle</h2>
+        
+        <div class="products-grid">
+            <div class="product-card card-hero">
+                <div class="badge badge-foundation">Grundlage</div>
+                <div class="card-icon">🌿</div>
+                <span class="unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">Salz Protokolls</h3>
+                <a href="#" onclick="openProduct('protocole-puissance'); return false;" class="access-btn">Jetzt Zugreifen</a>
+            </div>
+
+            <div class="product-card">
+                <div class="badge badge-advanced">Fortgeschritten</div>
+                <div class="card-icon">🧂</div>
+                <span class="unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">Stierschwanz</h3>
+                <a href="#" onclick="openProduct('protocole-sel'); return false;" class="access-btn">Jetzt Zugreifen</a>
+            </div>
+
+            <div class="product-card">
+                <div class="badge badge-exclusive">Exklusiv</div>
+                <div class="card-icon">❤️</div>
+                <span class="unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">MPS - Mehrfache Orgasmen in 5 Minuten</h3>
+                <a href="#" onclick="openProduct('systeme-mp5'); return false;" class="access-btn">Jetzt Zugreifen</a>
+            </div>
+
+            <div class="product-card">
+                <div class="badge badge-premium">Premium</div>
+                <div class="card-icon">🔥</div>
+                <span class="unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">Pheromone der Götter</h3>
+                <a href="#" onclick="openProduct('pheromones'); return false;" class="access-btn">Jetzt Zugreifen</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO VÍDEOS -->
+    <div class="section">
+        <h2 class="section-title">Premium Video-Schulungen</h2>
+        <p class="section-subtitle">🎁 EXKLUSIVE BONI: Videoversionen aller Ihrer Protokolle (Wert 1000€)<br>
+        Diese Video-Schulungen ergänzen Ihre Protokolle. Sie werden in den nächsten Tagen nach und nach freigeschaltet.</p>
+        
+        <div class="videos-grid">
+            <div class="video-card">
+                <div class="video-badge">Videokurs</div>
+                <div class="card-icon">🌿</div>
+                <span class="video-unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">Salz Protokolls - Video</h3>
+                <button class="video-disabled-btn" disabled>Demnächst verfügbar</button>
+            </div>
+
+            <div class="video-card">
+                <div class="video-badge">Videokurs</div>
+                <div class="card-icon">🧂</div>
+                <span class="video-unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">Stierschwanz - Video</h3>
+                <button class="video-disabled-btn" disabled>Demnächst verfügbar</button>
+            </div>
+
+            <div class="video-card">
+                <div class="video-badge">Videokurs</div>
+                <div class="card-icon">❤️</div>
+                <span class="video-unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">MPS - Mehrfache Orgasmen in 5 Minuten - Video</h3>
+                <button class="video-disabled-btn" disabled>Demnächst verfügbar</button>
+            </div>
+
+            <div class="video-card">
+                <div class="video-badge">Videokurs</div>
+                <div class="card-icon">🔥</div>
+                <span class="video-unlocked-tag">Zugang Freigeschaltet</span>
+                <h3 class="product-title">Pheromone der Götter - Video</h3>
+                <button class="video-disabled-btn" disabled>Demnächst verfügbar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO BÔNUS -->
+    <div class="section">
+        <h2 class="section-title">Exklusive Boni</h2>
+        <div class="info-tag">🎁 8 PREMIUM-BONI • Wert 1500€+ • Sofortiger Zugang aktiviert</div>
+        
+        <div class="bonus-grid">
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Vergnügen</div>
+                <div class="card-icon">🔥</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Positionen der Lust</h3>
+                <a href="#" onclick="openBonus('positions-plaisir'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Geheimnisse 🔥</div>
+                <div class="card-icon">💋</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Geheime Wünsche der Frauen</h3>
+                <a href="#" onclick="openBonus('desirs-secrets'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Nahrung</div>
+                <div class="card-icon">🍽️</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Geheime Lebensmittel</h3>
+                <a href="#" onclick="openBonus('aliments-secrets'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Erektion</div>
+                <div class="card-icon">⚡</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Erektionsstimulanzien</h3>
+                <a href="#" onclick="openBonus('stimulants-erection'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Kontrolle</div>
+                <div class="card-icon">🎯</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Kontrollieren Sie Ihre Ejakulation</h3>
+                <a href="#" onclick="openBonus('controle-ejaculation'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Natürlich</div>
+                <div class="card-icon">🍉</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Der Wassermelonen-Trick</h3>
+                <a href="#" onclick="openBonus('astuce-pasteque'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Energie</div>
+                <div class="card-icon">💪</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Vitaler Kern</h3>
+                <a href="#" onclick="openBonus('noyau-vital'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+
+            <div class="bonus-card">
+                <div class="bonus-theme-tag">Persönlich</div>
+                <div class="card-icon">📋</div>
+                <span class="bonus-gratuit-tag">Kostenlos</span>
+                <h3 class="product-title">Ihr Personalisiertes Rezept</h3>
+                <a href="#" onclick="openBonus('recette-personnalisee'); return false;" class="access-btn">Jetzt zugreifen</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO FUTUROS -->
+    <div class="section">
+        <h2 class="section-title">Lebenslanger Zugang zu Neuheiten</h2>
+        <p class="section-subtitle">Sie haben lebenslangen Zugang und erhalten automatisch alle neuen Produkte, die derzeit in Vorbereitung sind</p>
+        
+        <div class="future-grid">
+            <div class="future-card">
+                <div class="card-icon">⭐</div>
+                <h3 class="product-title">Neues Protokoll in Vorbereitung</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 10px;">Fortgeschrittene Schulung bald verfügbar</p>
+                <span class="future-dev-tag">In Entwicklung</span>
+            </div>
+
+            <div class="future-card">
+                <div class="card-icon">💎</div>
+                <h3 class="product-title">Neues Protokoll in Vorbereitung</h3>
+                <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 10px;">Exklusive Schulung bald verfügbar</p>
+                <span class="future-dev-tag">In Entwicklung</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Support & Refund Section -->
+<div class="support-section">
+    <h3>Kundenservice</h3>
+    <p>Brauchen Sie Hilfe?</p>
+    <a href="mailto:xglobalcontact@gmail.com" class="support-email">Kontaktieren Sie uns</a>
+    
+    <div class="refund-link">
+        <a href="refund-notice.html" target="_blank">Rückerstattungsanfrage</a>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <p>© 2025 Salz Protokolls – Alle Rechte vorbehalten.</p>
+</div>
+
+<script>
+    function openProduct(productId) {
+        window.location.href = `view-pdf-v2.html?id=${productId}`;
+    }
+
+    function openBonus(bonusId) {
+        window.location.href = `view-pdf-v2.html?id=${bonusId}`;
+    }
+</script>
+
+</body>
+</html>
+
+<!-- Test Vercel deploy Wed Jan 14 15:30:59 -03 2026 -->
+<!-- Config Git fix -->

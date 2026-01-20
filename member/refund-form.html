@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow">
+<title>Rückerstattungsformular – Salz Protokolls</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --dark-bg: #0f0f0f;
+        --card-bg: #161616;
+        --text-white: #ffffff;
+        --success-green: #10b981;
+        --green-light: #34d399;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background: var(--dark-bg);
+        color: var(--text-white);
+        min-height: 100vh;
+        line-height: 1.8;
+        padding: 40px 20px;
+        background-image: url('Título_files/foto fundo.webp');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+        color: var(--success-green);
+        font-size: 24px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .intro-text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 15px;
+        margin-bottom: 30px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: var(--text-white);
+        font-size: 16px;
+        font-family: 'Montserrat', sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus {
+        outline: none;
+        border-color: var(--success-green);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+
+    .form-group input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .submit-btn {
+        width: 100%;
+        background: var(--success-green);
+        color: white;
+        padding: 16px 32px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .submit-btn:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 25px 20px;
+        }
+
+        h1 {
+            font-size: 20px;
+        }
+
+        .intro-text {
+            font-size: 14px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Rückerstattungsformular</h1>
+    
+    <p class="intro-text">
+        Es tut uns leid zu hören, dass Sie Ihren Zugang zu unserem Programm beenden möchten. Sie haben jedoch das Recht, sich zurückzuziehen. Um eine Rückerstattung zu beantragen, füllen Sie bitte die folgenden Angaben aus.
+    </p>
+
+    <form id="refundForm" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Ihr vollständiger Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="Die beim Kauf verwendete E-Mail" required>
+        </div>
+
+        <button type="submit" class="submit-btn">Absenden</button>
+    </form>
+</div>
+
+<script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        
+        // Criar link mailto com assunto e corpo
+        const subject = encodeURIComponent(`Rückerstattungsanfrage | ${email}`);
+        const body = encodeURIComponent(`Name: ${name}\nKauf-E-Mail: ${email}`);
+        const mailtoLink = `mailto:xglobalcontact@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Abrir cliente de email
+        window.location.href = mailtoLink;
+        
+        // Mostrar mensagem de confirmação
+        alert('Vielen Dank! Ihre Rückerstattungsanfrage wurde vorbereitet. Bitte senden Sie die E-Mail, die sich in Ihrem E-Mail-Programm öffnet.');
+    }
+</script>
+
+</body>
+</html>
